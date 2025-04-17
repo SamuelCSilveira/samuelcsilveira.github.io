@@ -197,6 +197,51 @@
       filter: brightness(0) invert(1);
     }
 
+    /*Carrossel de imagens*/
+    .galeria-titulo {
+      text-align: center;
+      color: #004d40;
+      margin: 40px 0 20px;
+      font-size: 24px;
+    }
+
+    .galeria {
+      overflow: hidden;
+      width: 100%;
+      background: #f0f0f0;
+      padding: 10px 0;
+    }
+
+    .galeria-container {
+      display: flex;
+      animation: rolar 30s linear infinite;
+    }
+
+    .galeria img {
+      width: 500px;
+      height: 350px;
+      object-fit: cover;
+      margin: 0 15px;
+      border-radius: 12px;
+    }
+
+    /* Animação de rolagem */
+    @keyframes rolar {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Mobile: imagens menores */
+    @media (max-width: 600px) {
+      .galeria img {
+        width: 250px;
+        height: 160px;
+      }
+    }
     
   </style>
 </head>
@@ -232,6 +277,26 @@
       <div class="doacao">
         <h2>Escolha o valor</h2>
         <button onclick="copiarPix()">Doar</button>
+      </div>
+    </div>
+
+    <h2 class="galeria-titulo">Veja como está ficando a nossa escola:</h2>
+    <div class="galeria">
+      <div class="galeria-container">
+        <img src="img/fotos/foto 1.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 2.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 3.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 4.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 5.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 6.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 7.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 1.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 2.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 3.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 4.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 5.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 6.jpeg" alt="Imagem da escola">
+        <img src="img/fotos/foto 7.jpeg" alt="Imagem da escola">
       </div>
     </div>
   
