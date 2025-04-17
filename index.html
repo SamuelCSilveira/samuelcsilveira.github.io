@@ -54,7 +54,7 @@
       }
       .logo-mobile {
         display: block;
-        height: 40px;
+        height: 80px;
         margin-bottom: 10px;
       }
     }
@@ -151,6 +151,20 @@
       border-radius: 10px;
     }
 
+    .notificacao {
+      display: none;
+      position: fixed;
+      bottom: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #004d40;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      z-index: 999;
+    }
+
     /* Rodapé */
     footer {
       background: #004d40;
@@ -178,6 +192,8 @@
       height: 24px;
       filter: brightness(0) invert(1);
     }
+
+    
   </style>
 </head>
 <body>
@@ -195,21 +211,23 @@
     
       <div class="doacao">
         <h2>R$ 30,00</h2>
-        <button onclick="window.location.href='img/logo.png'">Doar</button>
+        <button onclick="copiarPix()">Doar</button>
       </div>
       <div class="doacao">
         <h2>R$ 50,00</h2>
-        <button onclick="window.location.href='doacao50.html'">Doar</button>
+        <button onclick="copiarPix()">Doar</button>
       </div>
       <div class="doacao">
         <h2>R$ 100,00</h2>
-        <button onclick="window.location.href='doacao100.html'">Doar</button>
+        <button onclick="copiarPix()">Doar</button>
       </div>
       <div class="doacao">
         <h2>R$ 200,00</h2>
-        <button onclick="window.location.href='doacao200.html'">Doar</button>
+        <button onclick="copiarPix()">Doar</button>
       </div>
     </div>
+  
+  </main>
 
     <!--
       <div class="produto">
@@ -228,7 +246,7 @@
         <p>R$ 39,90</p>
       </div>
     </div>
-  -->
+  
     <div class="pix-section">
       <h2>Pagamento via Pix</h2>
       <p>Escaneie o QR Code abaixo para realizar o pagamento:</p>
@@ -238,6 +256,11 @@
     </div>
 
   </main>
+  -->
+
+  <!-- Notificação -->
+  <div id="notificacao" class="notificacao">Chave PIX copiada para a área de transferência!</div>
+
 
   <footer>
     <div class="footer-content">
@@ -248,6 +271,27 @@
         <a href="https://wa.me/5584981320091"><img src="https://img.icons8.com/m_outlined/512/whatsapp.png" alt="WhatsApp"></a>
       </div>
     </div>
+  
   </footer>
+
+  <script>
+    const chavePix = "sua.chave.pix@exemplo.com"; // Defina aqui sua chave PIX
+  
+    function copiarPix() {
+      navigator.clipboard.writeText(chavePix).then(() => {
+        mostrarNotificacao();
+      }).catch(err => {
+        alert("Erro ao copiar a chave PIX.");
+      });
+    }
+  
+    function mostrarNotificacao() {
+      const notificacao = document.getElementById("notificacao");
+      notificacao.style.display = "block";
+      setTimeout(() => {
+        notificacao.style.display = "none";
+      }, 2500); // esconde depois de 2,5 segundos
+    }
+  </script>
 </body>
 </html>
