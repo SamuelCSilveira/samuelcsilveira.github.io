@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de Produtos</title>
+  <style>
+    /* Layout base */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Cabeçalho */
+    header {
+      background: #004d40;
+      color: #ffffff;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      margin: 0;
+      margin-left: 15px;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Conteúdo principal */
+    main {
+      flex: 1;
+    }
+
+    /* Catálogo */
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .doacao {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .doacao h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #004d40;
+    }
+
+    .doacao button {
+      background: #004d40;
+      color: #ffffff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .doacao button:hover {
+      background: #00695c;
+    }
+
+    /*.produto {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .produto img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 5px;
+    }
+
+    .produto h2 {
+      font-size: 18px;
+      margin: 10px 0 5px;
+      color: #004d40;
+    }
+
+    .produto p {
+      font-size: 16px;
+      color: #333;
+    }*/
+
+    /* Área de pagamento Pix */
+    /*.pix-section {
+      margin: 50px 20px;
+      text-align: center;
+    }
+
+    .pix-section h2 {
+      margin-bottom: 10px;
+      color: #004d40;
+    }
+
+    .pix-section p {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .pix-section img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      border: 3px solid #004d40;
+      border-radius: 10px;
+    }*/
+
+    /* Rodapé */
+    footer {
+      background: #004d40;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .footer-content p {
+      margin: 5px 0;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin: 0 8px;
+    }
+
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="img/logo.png" alt="Logomarca">
+      <h1>Faça a sua doação para a nova sede da Nova Acrópole Mossoró</h1>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="catalogo">
+      <div class="doacao">
+        <h2>R$ 30,00</h2>
+        <button onclick="window.location.href='img/logo.png'">Doar</button>
+      </div>
+      <div class="doacao">
+        <h2>R$ 50,00</h2>
+        <button onclick="window.location.href='doacao50.html'">Doar</button>
+      </div>
+      <div class="doacao">
+        <h2>R$ 100,00</h2>
+        <button onclick="window.location.href='doacao100.html'">Doar</button>
+      </div>
+      <div class="doacao">
+        <h2>R$ 200,00</h2>
+        <button onclick="window.location.href='doacao200.html'">Doar</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <!--<p>&copy; 2025 Minha Loja Online. Todos os direitos reservados.</p>-->
+      <p>Contato: (84) 9XXXX-XXXX | email@minhaloja.com</p>
+      <div class="social-icons">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733590.png" alt="WhatsApp"></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
