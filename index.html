@@ -30,7 +30,7 @@
     }
 
     header img {
-      height: 3em;
+      height: 50px;
     }
 
     header h1 {
@@ -42,6 +42,24 @@
     .header-content {
       display: flex;
       align-items: center;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      header img {
+        height: 40px;
+        margin-bottom: 10px;
+      }
+
+      header h1 {
+        margin-left: 0;
+        font-size: 20px;
+      }
     }
 
     /* Conteúdo principal */
