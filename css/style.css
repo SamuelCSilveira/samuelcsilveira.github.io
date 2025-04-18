@@ -1,0 +1,251 @@
+/* Layout base */
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Cabeçalho */
+  header {
+    background: #004d40;
+    color: #ffffff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: static;
+    z-index: 1000;
+  }
+
+  header img {
+    height: 3em;
+  }
+
+  header h1 {
+    font-size: 20px;
+    margin: 0;
+    margin-left: 15px;
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-mobile {
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    .logo-desktop {
+      display: none;
+    }
+    .logo-mobile {
+      display: block;
+      height: 55px;
+      margin-bottom: 10px;
+    }
+  }
+
+  /* Conteúdo principal */
+  main {
+    flex: 1;
+  }
+
+  /* Catálogo */
+  .catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .doacao {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .doacao h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #004d40;
+  }
+
+  .doacao button {
+    background: #004d40;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+
+  .doacao button:hover {
+    background: #00695c;
+  }
+
+  /* Notificação de copiar para área de transferência*/
+  .notificacao {
+    display: none;
+    position: fixed;
+    bottom: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #004d40;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 999;
+    min-width: 200px;
+    text-align: center;
+    box-sizing: border-box;
+    max-width: 90%;
+    margin-top: 15px;
+  }
+
+  /* Rodapé */
+  footer {
+    background: #004d40;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .footer-content p {
+    margin: 5px 0;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+
+  .social-icons a {
+    display: inline-block;
+    margin: 0 8px;
+  }
+
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+  }
+
+  /*Carrossel de imagens*/
+  .galeria-titulo {
+    text-align: center;
+    color: #004d40;
+    margin: 40px 0 20px;
+    font-size: 24px;
+  }
+
+  .galeria {
+    overflow: hidden;
+    width: 100%;
+    background: #f0f0f0;
+    padding: 10px 0;
+  }
+
+  .galeria-container {
+    display: flex;
+    width: max-content;
+    animation: rolar 45s linear infinite;
+  }
+
+  .galeria img {
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+    margin: 0 15px;
+    border-radius: 12px;
+  }
+
+  /* Animação de rolagem */
+  @keyframes rolar {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Mobile: imagens menores */
+  @media (max-width: 600px) {
+    .galeria img {
+      width: 350px;
+      height: 240px;
+    }
+  }
+  
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+  }
+
+  .modal-content h2 {
+    margin-bottom: 20px;
+    color: #004d40;
+  }
+
+  .modal-content .qrcode {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
+    border: 3px solid #004d40;
+    border-radius: 10px;
+  }
+
+  .modal-content p {
+    margin-bottom: 10px;
+  }
+
+  .modal-content button {
+    background: #004d40;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .modal-content button:hover {
+    background: #00695c;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+  }
