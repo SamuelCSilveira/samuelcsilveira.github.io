@@ -244,6 +244,79 @@
       }
     }
     
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 20px;
+      color: #004d40;
+    }
+
+    .modal-content .qrcode {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 20px;
+      border: 3px solid #004d40;
+      border-radius: 10px;
+    }
+
+    .modal-content p {
+      margin-bottom: 10px;
+    }
+
+    .modal-content button {
+      background: #004d40;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .modal-content button:hover {
+      background: #00695c;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* Notificação */
+    .notificacao {
+      display: none;
+      margin-top: 15px;
+      background: #004d40;
+      color: #fff;
+      padding: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
   </style>
 </head>
 <body>
@@ -261,23 +334,35 @@
     
       <div class="doacao">
         <h2>R$ 30,00</h2>
-        <button onclick="copiarPix()">Doar</button>
+        <button onclick="abrirModal(30)">Doar</button>
       </div>
       <div class="doacao">
         <h2>R$ 50,00</h2>
-        <button onclick="copiarPix()">Doar</button>
+        <button onclick="abrirModal(30)">Doar</button>
       </div>
       <div class="doacao">
         <h2>R$ 100,00</h2>
-        <button onclick="copiarPix()">Doar</button>
+        <button onclick="abrirModal(30)">Doar</button>
       </div>
       <div class="doacao">
         <h2>R$ 200,00</h2>
-        <button onclick="copiarPix()">Doar</button>
+        <button onclick="abrirModal(30)">Doar</button>
       </div>
       <div class="doacao">
         <h2>Escolha o valor</h2>
-        <button onclick="copiarPix()">Doar</button>
+        <button onclick="abrirModal(0)">Doar</button>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="pixModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <h2>Doação <span id="valorDoacao"></span></h2>
+        <img src="https://help.spreadsheetconverter.com/wp-content/uploads/2013/07/car-loan-amortization-mobile-qrcode.png" alt="QR Code PIX" class="qrcode">
+        <p>Chave PIX: <span id="chavePix">sua.chave.pix@exemplo.com</span></p><br />
+        <button onclick="copiarChavePix()">Copiar Chave PIX</button>
+        <div id="notificacao" class="notificacao">Chave PIX copiada! Agora basta colar no aplicativo do seu banco.</div>
       </div>
     </div>
 
@@ -333,7 +418,7 @@
   -->
 
   <!-- Notificação -->
-  <div id="notificacao" class="notificacao">Chave PIX copiada! Agora basta colar no aplicativo do seu banco.</div>
+  <!-- <div id="notificacao" class="notificacao">Chave PIX copiada! Agora basta colar no aplicativo do seu banco.</div> -->
 
 
   <footer>
@@ -349,7 +434,7 @@
   </footer>
 
   <script>
-    const chavePix = "sua.chave.pix@exemplo.com"; // Defina aqui sua chave PIX
+    /*const chavePix = "sua.chave.pix@exemplo.com"; // Defina aqui sua chave PIX
   
     function copiarPix() {
       navigator.clipboard.writeText(chavePix).then(() => {
@@ -365,6 +450,39 @@
       setTimeout(() => {
         notificacao.style.display = "none";
       }, 4000); // esconde depois de 4 segundos
+    }*/
+
+    function abrirModal(valor) {
+      document.getElementById("pixModal").style.display = "block";
+      if (valor == 0) {
+        document.getElementById("valorDoacao").textContent = `de um valor personalizado`;
+        return;
+      }
+      document.getElementById("valorDoacao").textContent = `de R$ ${valor.toFixed(2)}`;
+    }
+
+    function fecharModal() {
+      document.getElementById("pixModal").style.display = "none";
+    }
+
+    function copiarChavePix() {
+      navigator.clipboard.writeText(chavePix).then(() => {
+        const notificacao = document.getElementById("notificacao");
+        notificacao.style.display = "block";
+        setTimeout(() => {
+          notificacao.style.display = "none";
+        }, 4000);
+      }).catch(() => {
+        alert("Erro ao copiar a chave PIX.");
+      });
+    }
+
+    // Fecha o modal clicando fora
+    window.onclick = function(event) {
+      const modal = document.getElementById("pixModal");
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
     }
   </script>
 </body>
