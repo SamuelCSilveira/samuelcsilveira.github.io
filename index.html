@@ -25,15 +25,15 @@
       </div>
       <div class="doacao">
         <h2>R$ 50,00</h2>
-        <button onclick="abrirModal(30)">Doar</button>
+        <button onclick="abrirModal(50)">Doar</button>
       </div>
       <div class="doacao">
         <h2>R$ 100,00</h2>
-        <button onclick="abrirModal(30)">Doar</button>
+        <button onclick="abrirModal(100)">Doar</button>
       </div>
       <div class="doacao">
         <h2>R$ 200,00</h2>
-        <button onclick="abrirModal(30)">Doar</button>
+        <button onclick="abrirModal(200)">Doar</button>
       </div>
       <div class="doacao">
         <h2>Escolha o valor</h2>
@@ -46,8 +46,8 @@
       <div class="modal-content">
         <span class="close" onclick="fecharModal()">&times;</span>
         <h2>Doação <span id="valorDoacao"></span></h2>
-        <img src="https://help.spreadsheetconverter.com/wp-content/uploads/2013/07/car-loan-amortization-mobile-qrcode.png" alt="QR Code PIX" class="qrcode">
-        <p>Chave PIX: <span id="chavePix">sua.chave.pix@exemplo.com</span></p><br />
+        <img src="" alt="QR Code PIX" class="qrcode" id="qrcodePix">
+        <p>Chave PIX: <span id="chavePix"></span></p><br />
         <button onclick="copiarChavePix()">Copiar Chave PIX</button>
         <div id="notificacao" class="notificacao">Chave PIX copiada! Agora basta colar no aplicativo do seu banco.</div>
       </div>
